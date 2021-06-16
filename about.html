@@ -1,71 +1,17 @@
-<html lang="en"><head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript">
-            (function() {
-                var container = document.querySelector('#_tcx-1cnyufvji8xj');
-                if (!container) {
-                    return;
-                }
-
-                function addToContainer(url, text) {
-                    const wrapper = document.createElement('div');
-                    wrapper.setAttribute('data-tcx-url', url);
-                    wrapper.innerText = text;
-                    container.appendChild(wrapper);
-                }
-
-                const fetch = window.fetch
-                window.fetch = function() {
-                    return Promise.resolve(fetch.apply(window, arguments)).then(async response=>{
-                        if (response.ok) {
-                            try {
-                                const clone = response.clone();
-                                const json = await clone.json();
-                                addToContainer(clone.url, JSON.stringify(json));
-                            } catch (err) {}
-                        }
-                        return response;
-                    }
-                    );
-                }
-                ;
-
-                var XHR = XMLHttpRequest.prototype;
-                var send = XHR.send;
-                var open = XHR.open;
-                XHR.open = function(method, url) {
-                    this.url = url;
-                    return open.apply(this, arguments);
-                }
-                ;
-                XHR.send = function() {
-                    this.addEventListener('load', function() {
-                        try {
-                            const response = this.response;
-                            if (response && response.length) {
-                                const firstChar = response[0];
-                                if (firstChar === '[' || firstChar === '{') {
-                                    addToContainer(this.url, response);
-                                }
-                            }
-                        } catch (err) {// No-op.
-                        }
-                    });
-                    return send.apply(this, arguments);
-                }
-                ;
-            }
-            )();
-        </script>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-        <title>Serverless infrastructure for Cloud</title>
-        <meta name="twitter:title" content="Serverless infrastructure for Cloud">
-        <meta name="description" content="Build scalable backend without managing cloud infrastructure.">
-        <meta name="twitter:description" content="Build scalable backend without managing cloud infrastructure.">
-        <!--link rel="icon" href="https://www.tanh.ai/linkicon.png"-->
-        <link rel="canonical" href="https://www.tanh.ai/">
-        <link rel="stylesheet" href="./images/zl1jtzyamr1z-c11c01d852d2b05237c9d50be89056c7aaee7450.css">
+        <title>About us - tanh.AI</title>
+        <meta name="twitter:title" content="About us - tanh.AI">
+        <meta name="description" content="Our mission, values, and team.">
+        <meta name="twitter:description" content="Our mission, values, and team.">
+        <!--link rel="icon" href="https://www.tanh.ai/lib_QtFjUvVkCmvcsdgK/esydr4vmw8s14npt.png"-->
+        <link rel="canonical" href="https://www.tanh.ai/about.html">
+        <link rel="stylesheet" href="images/zl1jtzyamr1z-c11c01d852d2b05237c9d50be89056c7aaee7450.css">
         <style tyle="text/css">
             body {
                 font-family: Poppins,sans-serif;
@@ -158,7 +104,7 @@
                 text-decoration: underline
             }
         </style>
-        <link href="./images/css.css" rel="stylesheet">
+        <link href="images/css.css" rel="stylesheet">
     </head>
     <body>
         <div id="header" class="section header dark header--fixed header--solid" style="background-color:#fff;border-color:rgba(0, 0, 0, 0.1);--wr-max:1200px">
@@ -169,181 +115,57 @@
                     </a>
                     <div class="spacer"></div>
                     <div class="headerNav__links">
-                        
-                        
-                        
-                        <a href="https://www.tanh.ai/about.html">About us</a>
+                        <!--a href="https://www.tanh.ai/about.html">About</a-->
                     </div>
                     <div class="header__navCtas"></div>
                 </div>
                 <div id="headerMenuButton" class="burger">Menu</div>
             </div>
         </div>
-        <div id="hero" class="section section--hero section--noPadding section--center dark section--vevgwaeyzjg" style="background-color:#fcfcfc;--pdx-min-height:0px;--wr-max:1200px;font-size:14px">
-            <div id="headerSpacer" style="height:91px"></div>
+        <div id="gallery" class="section section--gallery section--center dark" style="background-color:#FCFCFC;padding-bottom:10px;padding-top:120px;--pdx-min-height:0px;--wr-max:1200px">
+            <div id="headerSpacer" style="height:51px"></div>
             <script>
                 !function() {
                     var e, t = document.getElementById("header"), n = document.getElementById("headerSpacer");
                     t && n && (e = t.getBoundingClientRect().height,
-                    n.setAttribute("style", "height:" + e + "px"))
+                    n.setAttribute("style", "height:" + "50" + "px"))
                 }()
             </script>
-            <div class="ft ft--center ft--noPdx" style="--pdx-pt:100;--pdx-pb:100">
-                <div class="ft__half">
-                    <div class="ft__wrapper" style="max-width:570px">
-                        <div class="ft__content">
-                            <h1 class="hero__title color-1 weight-title-h font-title">Serverless Cloud infrastructure</h1>
-                            <p class="hero__subtitle weight-text">Build scalable backend without managing cloud infrastructure.</p>
-                            <div class="ctas">
-                                <a href="mailto:hello@tanh.ai" class="btn btn--c btn--secondary btn--large" style="color:#5757E7" target="_blank" rel="noopener noreferrer">Request a demo</a>
-
-                            </div>
-                            <div class="hero__ctaInfo"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="feature" class="section section--feature section--noPadding section--left dark" style="background-color:#FCFCFC;--pdx-min-height:0px;--wr-max:1200px">
-            <div class="ft ft--left" style="--pdx-pt:-90;--pdx-pb:100">
-                <div class="ft__half">
-                    <div class="ft__wrapper" style="max-width:570px">
-                        <div class="ft__content">
-                            <h2 class="color-1 weight-title-h font-title section__title left standalone noMargin">Deploy containers as scalable microservices</h2>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="ft__half">
-                    <div class="ft__wrapper" style="max-width:570px">
-                        <div class="ft__content">
-                            <h2 class="color-1 weight-title-h font-title section__title right standalone noMargin">Build scalable backend faster and Reduce your Cloud costs</h2>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="feature" class="section section--feature section--noPadding section--right dark" style="background-color:#FCFCFC;--pdx-min-height:0px;--wr-max:1200px">
-            
-        </div>
-        <div id="feature" class="section section--feature section--noPadding section--left dark" style="background-color:#FCFCFC;--pdx-min-height:0px;--wr-max:1200px">
-            
-        </div>
-        <div id="grid" class="section section--grid section--center dark" style="background-color:#FCFCFC;padding-bottom:120px;padding-top:6px;--pdx-min-height:0px;--wr-max:1200px">
             <div class="wr">
-                <h2 class="color-1 weight-title-h font-title section__title center standalone">Improve developer productivity</h2>
-                <div class="grid grid--center">
-                    <div class="gridItem">
-                        <div class="icon medium" style="height:32px;width:32px">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="rgba(0, 0, 0, 1)" width="32" height="32" viewBox="0 0 24 24">
-                                <path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM8 20H4v-4h4v4zm0-6H4v-4h4v4zm0-6H4V4h4v4zm6 12h-4v-4h4v4zm0-6h-4v-4h4v4zm0-6h-4V4h4v4zm6 12h-4v-4h4v4zm0-6h-4v-4h4v4zm0-6h-4V4h4v4z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="gridItem__title color-1 weight-text-m">Serverless compute</h3>
-                        <div class="gridItem__description">
-                            <p>Deploy any container without managing infrastructure.</p>
-                        </div>
-                    </div>
-                    <div class="gridItem">
-                        <div class="icon medium" style="height:32px;width:32px">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="rgba(0, 0, 0, 1)" width="32" height="32" viewBox="0 0 24 24">
-                                <path d="M23 8c0 1.1-.9 2-2 2a1.7 1.7 0 0 1-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56A1.7 1.7 0 0 1 19 8c0-1.1.9-2 2-2s2 .9 2 2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="gridItem__title color-1 weight-text-m">Observability integrations</h3>
-                        <div class="gridItem__description">
-                            <p>Monitor your workloads with pre-built dashboards or create custom ones.</p>
-                        </div>
-                    </div>
-                    <div class="gridItem">
-                        <div class="icon medium" style="height:32px;width:32px">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="rgba(0, 0, 0, 1)" width="32" height="32" viewBox="0 0 24 24">
-                                <path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="gridItem__title color-1 weight-text-m">Programmable deployments</h3>
-                        <div class="gridItem__description">
-                            <p>Deploy programmatically from any CI/CD tool.</p>
-                        </div>
-                    </div>
-                    <div class="gridItem">
-                        <div class="icon medium" style="height:32px;width:32px">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="rgba(0, 0, 0, 1)" width="32" height="32" viewBox="0 0 24 24">
-                                <path d="M20 8h-2.81a5.985 5.985 0 0 0-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="gridItem__title color-1 weight-text-m">Local debugging</h3>
-                        <div class="gridItem__description">
-                            <p>Debug your code locally before deploying to your cluster.</p>
-                        </div>
-                    </div>
-                    <div class="gridItem">
-                        <div class="icon medium" style="height:32px;width:32px">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="rgba(0, 0, 0, 1)" width="32" height="32" viewBox="0 0 24 24">
-                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 0 1 5.08 16zm2.95-8H5.08a7.987 7.987 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="gridItem__title color-1 weight-text-m">HTTP and gRPC</h3>
-                        <div class="gridItem__description">
-                            <p>Expose APIs as HTTP or gRPC endpoints.</p>
-                        </div>
-                    </div>
-                    <div class="gridItem">
-                        <div class="icon medium" style="height:32px;width:32px">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="rgba(0, 0, 0, 1)" width="32" height="32" viewBox="0 0 24 24">
-                                <path d="M20 10h-3V8.86c1.72-.45 3-2 3-3.86h-3V4c0-.55-.45-1-1-1H8c-.55 0-1 .45-1 1v1H4c0 1.86 1.28 3.41 3 3.86V10H4c0 1.86 1.28 3.41 3 3.86V15H4c0 1.86 1.28 3.41 3 3.86V20c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1.14c1.72-.45 3-2 3-3.86h-3v-1.14c1.72-.45 3-2 3-3.86zm-8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 12 19zm0-5a2 2 0 1 1-.001-3.999A2 2 0 0 1 12 14zm0-5a2 2 0 0 1-2-2c0-1.11.89-2 2-2a2 2 0 1 1 0 4z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="gridItem__title color-1 weight-text-m">Traffic splitting</h3>
-                        <div class="gridItem__description">
-                            <p>Configure A/B tests and shadow pipelines.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div id="gallery" class="section section--gallery section--center dark" style="background-color:#FCFCFC;padding-bottom:120px;padding-top:6px;--pdx-min-height:0px;--wr-max:1200px">
-            <div class="wr">
-                <h2 class="color-1 weight-title-h font-title section__title center standalone">Common use cases</h2>
+                <h1 class="color-1 weight-title-h font-title section__title center standalone">Values</h1>
                 <div class="gallery" style="margin:0 -15px -30px;margin-top:0 -15px -30px;margin-bottom:0 -15px -30px">
-                    <div class="galleryItem" style="width:calc(50% - 30px);margin:0 15px 30px;border-radius:25px;box-shadow:0 2px 5px 0 rgba(0,0,0,0.15);margin-top:0 15px 30px;margin-bottom:0 15px 30px">
+                    <div class="galleryItem" style="width:calc(33.33% - 30px);margin:0 15px 30px;border-radius:25px;box-shadow:0 2px 5px 0 rgba(0,0,0,0.15);margin-top:0 15px 30px;margin-bottom:0 15px 30px">
                         <div target="">
                             <div class="gallery__meta">
-                                <h3 class="color-1 weight-text">Realtime model serving</h3>
-                                <div class="gallery__description">Deploy machine learning models as realtime HTTP or gRPC APIs and seamlessly scale inference across CPU or GPU instances.</div>
+                                <h3 class="color-1 weight-text">Simplicity</h3>
+                                <div class="gallery__description">We are committed to keeping tanh.AI as simple and easy to use as possible.</div>
                             </div>
                         </div>
                     </div>
-                    <div class="galleryItem" style="width:calc(50% - 30px);margin:0 15px 30px;border-radius:25px;box-shadow:0 2px 5px 0 rgba(0,0,0,0.15);margin-top:0 15px 30px;margin-bottom:0 15px 30px">
+                    <div class="galleryItem" style="width:calc(33.33% - 30px);margin:0 15px 30px;border-radius:25px;box-shadow:0 2px 5px 0 rgba(0,0,0,0.15);margin-top:0 15px 30px;margin-bottom:0 15px 30px">
                         <div target="">
                             <div class="gallery__meta">
-                                <h3 class="color-1 weight-text">Image, video, and audio processing</h3>
-                                <div class="gallery__description">Build data processing pipelines that can scale to handle large structured or unstructured data sets.</div>
+                                <h3 class="color-1 weight-text">Developer-first</h3>
+                                <div class="gallery__description">Our product, documentation, and community are designed for developers.</div>
                             </div>
                         </div>
                     </div>
-                    <div class="galleryItem" style="width:calc(50% - 30px);margin:0 15px 30px;border-radius:25px;box-shadow:0 2px 5px 0 rgba(0,0,0,0.15);margin-top:0 15px 30px;margin-bottom:0 15px 30px">
+                    <div class="galleryItem" style="width:calc(33.33% - 30px);margin:0 15px 30px;border-radius:25px;box-shadow:0 2px 5px 0 rgba(0,0,0,0.15);margin-top:0 15px 30px;margin-bottom:0 15px 30px">
                         <div target="">
                             <div class="gallery__meta">
-                                <h3 class="color-1 weight-text">Compute-intensive microservices</h3>
-                                <div class="gallery__description">Deploy web scraping, file processing, and other compute-intensive workloads without managing instances, autoscaling groups, or load balancers.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="galleryItem" style="width:calc(50% - 30px);margin:0 15px 30px;border-radius:25px;box-shadow:0 2px 5px 0 rgba(0,0,0,0.15);margin-top:0 15px 30px;margin-bottom:0 15px 30px">
-                        <div target="">
-                            <div class="gallery__meta">
-                                <h3 class="color-1 weight-text">Machine learning operations (MLOps)</h3>
-                                <div class="gallery__description">Create services that continuously retrain and evaluate models to maintain their accuracy over time. Then update APIs to use the latest models.</div>
+                                <h3 class="color-1 weight-text">Cloud-first</h3>
+                                <div class="gallery__description">We are focused on enabling scale and workflows that are only possible on public cloud.</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div id="team" class="section section--grid section--center dark" style="background-color:#FCFCFC;padding-bottom:120px;padding-top:120px;--pdx-min-height:0px;--wr-max:1200px">
+            <div class="wr"><h2 class="color-1 weight-title-h font-title section__title center">Team</h2><p class="weight-text section__subtitle center">We are a team of engineers with backgrounds in DevOps and cloud infrastructure.</p><div class="team team--center team--l6"><div class="team__member"><img src="images/img1.jpg?w=160&amp;h=160&amp;fit=crop&amp;crop=faces" class="member__avatar" srcset="images/img1.jpg?w=320&amp;h=320&amp;fit=crop&amp;crop=faces 2x"><h3 class="member__name color-1 weight-text-m">Praveen Maiya</h3><h4 class="member__role weight-text">Engineering</h4><div class="member__description"></div></div><div class="team__member"><img src="images/img2.jpg?w=160&amp;h=160&amp;fit=crop&amp;crop=faces" class="member__avatar" srcset="images/img2.jpg?w=320&amp;h=320&amp;fit=crop&amp;crop=faces 2x"><h3 class="member__name color-1 weight-text-m">Sanjeev Kumar</h3><h4 class="member__role weight-text">Engineering</h4><div class="member__description"></div></div><div class="team__member"><img src="images/img3.jpg?w=160&amp;h=160&amp;fit=crop&amp;crop=faces" class="member__avatar" srcset="images/img3.jpg?w=320&amp;h=320&amp;fit=crop&amp;crop=faces 2x"><h3 class="member__name color-1 weight-text-m">Sarah Baker</h3><h4 class="member__role weight-text">Product</h4><div class="member__description"></div></div></div></div>
+        </div>
 
+ 
         <footer id="footer" class="section section--footer section--left" style="background-color:#393E46;padding-bottom:16px;padding-top:28px;--pdx-min-height:0px;--wr-max:1200px">
             <div class="wr">
                 <div class="footer">
@@ -351,8 +173,6 @@
                         <span>© 2021 tanh.AI</span>
                     </div>
                     <div class="footer__linkGroups">
-                        
-                        
                         <ul class="footer__linkGroup">
                             <li class="weight-text">Company</li>
                             <a href="https://www.tanh.ai/about.html">About us</a>
@@ -590,7 +410,7 @@
                 Array.prototype.forEach.call(e, function(e, t) {
                     e.addEventListener("click", function(e) {
                         var t = JSON.stringify({
-                            siteId: "kvc0ykuiqlvl",
+                            siteId: "lr1h9jf4xcs6",
                             category: "button",
                             name: e.target.innerText,
                             data: {
@@ -600,15 +420,14 @@
                         navigator.sendBeacon && navigator.sendBeacon("/api/event", t)
                     })
                 });
-                /* var t = new XMLHttpRequest;
+                var t = new XMLHttpRequest;
                 t.open("POST", "/api/view", !0),
                 t.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8"),
                 t.send(JSON.stringify({
                     referrer: document.referrer,
                     path: window.location.pathname
-                })) */
+                }))
             }()
         </script>
-    
-
-</body></html>
+    </body>
+</html>
